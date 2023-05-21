@@ -53,7 +53,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/{id}")
-    public Employee getEmployeeById(@PathVariable int id) {
+    public Employee getEmployeeById(@PathVariable int id) throws ClassNotFoundException {
         return employeeService.getEmployeeByID(id);
     }
 

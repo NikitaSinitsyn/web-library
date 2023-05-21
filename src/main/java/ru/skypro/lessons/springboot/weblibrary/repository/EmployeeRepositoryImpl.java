@@ -80,11 +80,11 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
         }
     }
     @Override
-    public Employee getEmployeeByID(int id) {
+    public Employee getEmployeeByID(int id) throws ClassNotFoundException {
         return employeeList.stream()
                 .filter(employee -> employee.getId() == id)
                 .findFirst()
-                .orElse(null);
+                .orElseThrow(() -> new ClassNotFoundException("Employee not found"));
     }
     @Override
     public void deleteEmployeeByID(int id) {

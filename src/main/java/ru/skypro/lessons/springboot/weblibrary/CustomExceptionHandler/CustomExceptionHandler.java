@@ -13,6 +13,11 @@ public class CustomExceptionHandler {
         return ResponseEntity.badRequest().body(e.getMessage());
     }
 
+    @ExceptionHandler(ClassNotFoundException.class)
+    public ResponseEntity<String> handleNotFoundException(ClassNotFoundException ex) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
+    }
+
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<String> handleException(Exception e) {

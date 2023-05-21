@@ -53,7 +53,7 @@ public class EmployeeServiceImpl implements EmployeeService{
         employeeRepository.updateEmployeeByID(id, employee);
     }
     @Override
-    public Employee getEmployeeByID(int id) {
+    public Employee getEmployeeByID(int id) throws ClassNotFoundException {
         if (!employeeRepository.exists(id)) {
             throw new IllegalArgumentException("Invalid employee id: " + id);
         }
